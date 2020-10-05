@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Dscr:</strong>
+  <%= @plan.dscr %>
+</p>
+<strong>Spots</strong><br>
+<% @plan.spots.each do |s| %>
+    name:
+    <%= s.name%>|
+    address:
+    <%= s.address%>|
+    body:
+    <%= s.body%>|
+    <br>
+<% end %>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>
