@@ -1,5 +1,5 @@
 class PlanSpotsController < ApplicationController
-
+    before_action :authenticate_user!
     def create 
         @plan_spot = PlanSpot.new(plan_spot_params)
         if @plan_spot.save
