@@ -6,7 +6,7 @@ class SpotsController < ApplicationController
   # GET /spots.json
   def index
     if params[:search].present?
-      @spots = Spot.all.where(name: params[:search])
+      @spots = Spot.where(['name LIKE ? OR address LIKE ? OR body LIKE ?', '%' + params[:search] + '%', '%' + params[:search] + '%', '%' + params[:search] + '%'])
     else
       @spots = Spot.all
     end

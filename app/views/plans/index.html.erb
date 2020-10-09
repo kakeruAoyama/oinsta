@@ -1,6 +1,13 @@
+<h1>Plans</h1>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Plans</h1>
+<h3>Search</h3>
+ <%= form_tag({controller:"plans",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag 'search'  %>
+<% end %>
+
 
 <table>
   <thead>

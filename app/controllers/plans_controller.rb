@@ -4,7 +4,11 @@ class PlansController < ApplicationController
   # GET /plans
   # GET /plans.json
   def index
-    @plans = Plan.all
+    if params[:search].present?
+      @plans = Plan.where(['name LIKE ? OR dscr LIKE ?', '%' + params[:search] + '%', '%' + params[:search] + '%'])
+    else
+      @plans = Plan.all
+    end
   end
 
   # GET /plans/1
